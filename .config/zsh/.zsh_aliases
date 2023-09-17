@@ -1,0 +1,51 @@
+# Improved ls
+LS_OPTS="-FXpq --color=auto --time-style=iso --group-directories-first"
+alias ls="ls $LS_OPTS"
+alias ll="ls $LS_OPTS -clAH --size"
+
+# Add colors to grep
+alias grep='grep --color=auto'
+
+# Editor shortcut
+alias e="$EDITOR"
+
+# Git shortcut
+alias g='git'
+
+# System controls
+alias s="systemctl"
+alias j="journalctl -xe"
+
+# Fix calendar
+alias cal="cal -m"
+
+# Verbose rm
+alias rm="rm -v"
+
+# Navigation
+alias p="pushd"
+alias po="popd"
+
+# Better less
+alias less="less -cSR"
+
+# Dotfiles management
+alias rc='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Refresh sudo on use
+alias sudo="sudo -v; sudo "
+
+# Print file size
+pfsize() { stat --printf '%n: %s\n' $@ | numfmt -d ' ' --field 2 --to iec }
+
+fencrypt() {
+	Input=$1
+	Output=$2
+	openssl aes-256-cbc -e -salt -pbkdf2 -iter 10000 -in "$Input" -out "${Output:-$Input.enc}"
+}
+
+fdecrypt() {
+	Input=$1
+	Output=$2
+	openssl aes-256-cbc -d -salt -pbkdf2 -iter 10000 -in "$Input" -out "${Output:-$Input.plain}"
+}
