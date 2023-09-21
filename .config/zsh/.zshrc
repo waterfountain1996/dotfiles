@@ -42,7 +42,13 @@ _get_prompt() {
 	[ -n "${vcs_info_msg_0_}" ] && s+="%F{red}:${vcs_info_msg_0_}"
 	local ve="$(get_venv)"
 	[ -n "$ve" ] && s+=" %F{magenta}$ve"
-	s+=" %F{blue}%B$%b %F{reset_color}"
+	if [[ $(uname -s) == "Darwin" ]]; then
+		s+='
+'
+	else
+		s+=' '
+	fi
+	s+="%F{blue}%B$%b %F{reset_color}"
 	printf "%s" "$s"
 }
 

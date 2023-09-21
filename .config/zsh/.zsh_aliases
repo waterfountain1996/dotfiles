@@ -1,7 +1,13 @@
 # Improved ls
-LS_OPTS="-FXpq --color=auto --time-style=iso --group-directories-first"
+if [[ $(uname -s) == "Linux" ]]; then
+	LS_OPTS="-FXpq --color=auto --time-style=iso --group-directories-first"
+	LL_OPTS=""
+else
+	LS_OPTS="-Fpq --color=auto -D '%Y-%m-%d %H-%M'"
+fi
+
 alias ls="ls $LS_OPTS"
-alias ll="ls $LS_OPTS -clAH --size"
+alias ll="ls $LS_OPTS -clAH"
 
 # Add colors to grep
 alias grep='grep --color=auto'
@@ -13,11 +19,15 @@ alias e="$EDITOR"
 alias g='git'
 
 # System controls
-alias s="systemctl"
-alias j="journalctl -xe"
+if [[ $(uname -s) == "Linux" ]]; then
+	alias s="systemctl"
+	alias j="journalctl -xe"
+fi
 
 # Fix calendar
-alias cal="cal -m"
+if [[ $(uname -s) == "Linux" ]]; then
+	alias cal="cal -m"
+fi
 
 # Verbose rm
 alias rm="rm -v"
