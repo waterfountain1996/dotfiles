@@ -44,7 +44,7 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { "williamboman/mason.nvim", config = true },
+            "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
 
             -- Additional lua configuration, makes nvim stuff amazing!
@@ -396,6 +396,7 @@ local servers = {
     pyright = {},
     rust_analyzer = {},
     tsserver = {},
+    gopls = {},
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
