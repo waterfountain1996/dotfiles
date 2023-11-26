@@ -12,5 +12,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export EDITOR=nvim
 
 export GOPATH="$XDG_DATA_HOME"/go
+export GOBIN="$XDG_DATA_HOME"/go/bin
 
 export PATH="$PATH":"$HOME"/.local/bin
+export PATH="$PATH":"$GOBIN"
