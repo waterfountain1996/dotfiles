@@ -6,7 +6,7 @@ Xft.rgba: rgb
 Xft.dpi: 96
 
 st.font: Iosevka SS18 Medium:size=14:antialias=false:autohint=true
-st.alpha: 0.92
+st.alpha: 0.96
 
 dwm.normbgcolor:     #222222
 dwm.normbordercolor: #444444
