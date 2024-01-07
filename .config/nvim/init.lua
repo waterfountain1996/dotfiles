@@ -112,6 +112,10 @@ vim.cmd [[colorscheme gruvbox]]
 vim.keymap.set("v", ">", ">gv", { noremap = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true })
 
+-- Shift current selection up or down with indentation
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Copy text until EOL
 vim.keymap.set("n", "Y", "yg_", { noremap = true })
 
