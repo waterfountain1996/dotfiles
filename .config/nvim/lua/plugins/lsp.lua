@@ -1,5 +1,5 @@
-local on_attach = function(_, bufnr)
-	local nmap = function(keys, func)
+local function on_attach(_, bufnr)
+	local function nmap(keys, func)
 		vim.keymap.set("n", keys, func, { buffer = bufnr })
 	end
 
