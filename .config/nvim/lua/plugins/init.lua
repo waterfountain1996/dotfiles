@@ -16,7 +16,14 @@ return {
     "tpope/vim-surround",
 
     -- Auto closing Parentheses, brackets, quotes etc.
-    "windwp/nvim-autopairs",
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup({
+                check_ts = true,
+            })
+        end
+    },
 
     -- Stay in root directory
     "airblade/vim-rooter",

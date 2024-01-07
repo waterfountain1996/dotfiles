@@ -139,8 +139,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.g.rooter_patterns = {".git"}
 
-require("nvim-autopairs").setup({ check_ts = true })
-
 -- NERDTree
 vim.g.NERDTreeIgnore = {
 	"egg-info$",
