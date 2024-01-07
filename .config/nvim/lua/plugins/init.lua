@@ -9,9 +9,6 @@ return {
     -- Git support
     "tpope/vim-fugitive",
 
-    -- Auto indent
-    "tpope/vim-sleuth",
-
     -- Parentheses, brackets, quotes etc.
     "tpope/vim-surround",
 
