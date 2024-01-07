@@ -150,22 +150,6 @@ vim.g.NERDTreeIgnore = {
 vim.g.NERDTreeDirArrowExpandable = "~"
 vim.g.NERDTreeDirArrowCollapsible = "$"
 
--- Treesitter
-require('nvim-treesitter.configs').setup({
-    ensure_installed = { "c", "cpp", "lua", "python", "rust", "typescript", "vim" },
-    highlight = { enable = true },
-    indent = { enable = true, },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "<c-space>",
-            node_incremental = "<c-space>",
-            scope_incremental = "<c-s>",
-            node_decremental = "<c-backspace>",
-        },
-    },
-})
-
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
