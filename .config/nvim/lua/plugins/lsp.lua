@@ -45,11 +45,6 @@ return {
         "hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		"folke/neodev.nvim",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/cmp-buffer",
-		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		require("neodev").setup()
@@ -71,23 +66,12 @@ return {
 						cmd = servers[server_name].cmd,
 						settings = servers[server_name].settings,
 					})
-				else
-					lspconfig[server_name].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-					})
 				end
 			end,
 		})
 
 		local cmp = require("cmp")
-		local luasnip = require("luasnip")
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-d>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -99,7 +83,6 @@ return {
 			}),
 			sources = {
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
 			}
 		})
 	end,
