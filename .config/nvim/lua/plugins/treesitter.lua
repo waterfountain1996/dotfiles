@@ -15,7 +15,6 @@ return {
                     "javascript",
                     "typescript",
                     "vim",
-                    "vimdoc",
                     "html",
                     "latex",
                 },

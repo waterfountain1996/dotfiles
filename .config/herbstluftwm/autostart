@@ -40,8 +40,8 @@ hc keybind $Mod-d spawn dmenu_run \
 	-sb "$COLOR_BLUE" \
 	-nf "$COLOR_BG4" -nb "$COLOR_BG1"
 
-hc keybind $Mod-Print spawn stake "-f"
-hc keybind $Mod-Shift-Print spawn stake "-s"
+hc keybind $Mod-Home spawn stake "-f"
+hc keybind $Mod-Shift-Home spawn stake "-s"
 
 # basic movement in tiling and floating mode
 # focusing clients
