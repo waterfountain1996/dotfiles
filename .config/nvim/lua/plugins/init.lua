@@ -22,9 +22,6 @@ return {
         end
     },
 
-    -- Stay in root directory
-    "airblade/vim-rooter",
-
     -- Add indentation guides even on blank lines
     {
         "lukas-reineke/indent-blankline.nvim",
