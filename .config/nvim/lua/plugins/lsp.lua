@@ -35,7 +35,10 @@ local servers = {
 			},
 		}
 	},
+	templ = {},
 }
+
+vim.filetype.add({ extension = { templ = "templ" } })
 
 return {
 	"neovim/nvim-lspconfig",
