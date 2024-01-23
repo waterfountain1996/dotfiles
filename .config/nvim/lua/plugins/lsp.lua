@@ -47,6 +47,15 @@ return {
 		"williamboman/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-path",
+
+		-- Snippet engine
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+
+		-- Adds a number of user-friendly snippets
+		"rafamadriz/friendly-snippets",
+
 		"folke/neodev.nvim",
 	},
 	config = function()
@@ -74,18 +83,29 @@ return {
 		})
 
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
+
+		luasnip.config.setup({})
+
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+				luasnip.lsp_expand(args.body)
+				end,
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-d>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
-				-- ["<CR>"] = cmp.mapping.confirm {
-				-- 	behavior = cmp.ConfirmBehavior.Replace,
-				-- 	select = true,
-				-- },
+				["<CR>"] = cmp.mapping.confirm {
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				},
 			}),
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "path" },
 			}
 		})
 	end,
