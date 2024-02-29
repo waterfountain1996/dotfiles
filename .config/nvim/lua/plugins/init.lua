@@ -6,6 +6,9 @@ return {
     -- Code comments
     "tpope/vim-commentary",
 
+    -- Auto indent
+    "tpope/vim-sleuth",
+
     -- Git support
     "tpope/vim-fugitive",
 
