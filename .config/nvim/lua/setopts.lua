@@ -68,14 +68,3 @@ vim.cmd("set guicursor=")
 
 -- Completion options
 vim.o.completeopt = "menuone,noinsert,noselect"
-
--- Colorscheme
-vim.o.termguicolors             = true
-vim.g.gruvbox_italic            = true
-vim.g.gruvbox_bold              = true
-vim.g.gruvbox_undercurl         = true
-vim.g.gruvbox_invert_selection  = false
-vim.g.gruvbox_invert_signs      = true
-vim.g.gruvbox_improved_warnings = true
-vim.g.gruvbox_contrast_dark     = "medium"
-vim.cmd("colorscheme gruvbox")

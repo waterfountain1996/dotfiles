@@ -1,7 +1,21 @@
 return {
     -- Color scheme
-    "morhetz/gruvbox",
     "eddyekofo94/gruvbox-flat.nvim",
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        lazy = false,
+        config = function()
+            require("gruvbox").setup({
+                italic = {
+                    strings = false,
+                },
+                invert_signs = true,
+                contrast = "soft",
+            })
+            vim.cmd([[colorscheme gruvbox]])
+        end,
+    },
 
     -- Code comments
     "tpope/vim-commentary",
@@ -45,7 +59,7 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = "gruvbox-flat",
+                theme = "gruvbox",
                 component_separators = '|',
                 section_separators = '',
             },

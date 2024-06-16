@@ -15,9 +15,14 @@ local function on_attach(_, bufnr)
 	nmap("]d", vim.diagnostic.goto_next)
 	nmap("<leader>e", vim.diagnostic.open_float)
 
-	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		vim.lsp.buf.format()
-	end)
+	vim.api.nvim_buf_create_user_command(
+		bufnr,
+		"Format",
+		function(_)
+			vim.lsp.buf.format()
+		end,
+		{ force = true }
+	)
 end
 
 local servers = {
