@@ -1,6 +1,5 @@
 return {
     -- Color scheme
-    "eddyekofo94/gruvbox-flat.nvim",
     {
         "morhetz/gruvbox",
         priority = 1000,
@@ -60,7 +59,7 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = "gruvbox-flat",
+                theme = "gruvbox-material",
                 component_separators = '|',
                 section_separators = '',
             },
