@@ -2,17 +2,18 @@ return {
     -- Color scheme
     "eddyekofo94/gruvbox-flat.nvim",
     {
-        "ellisonleao/gruvbox.nvim",
+        "morhetz/gruvbox",
         priority = 1000,
         lazy = false,
         config = function()
-            require("gruvbox").setup({
-                italic = {
-                    strings = false,
-                },
-                invert_signs = true,
-                contrast = "soft",
-            })
+            vim.o.termguicolors = true
+            vim.g.gruvbox_italic = true
+            vim.g.gruvbox_bold = true
+            vim.g.gruvbox_undercurl = true
+            vim.g.gruvbox_invert_selection  = false
+            vim.g.gruvbox_invert_signs = true
+            vim.g.gruvbox_improved_warnings = true
+            vim.g.gruvbox_contrast_dark = "medium"
             vim.cmd([[colorscheme gruvbox]])
         end,
     },
@@ -59,7 +60,7 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = "gruvbox_dark",
+                theme = "gruvbox-flat",
                 component_separators = '|',
                 section_separators = '',
             },
