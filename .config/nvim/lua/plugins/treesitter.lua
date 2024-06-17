@@ -15,6 +15,7 @@ return {
                     "javascript",
                     "typescript",
                     "vim",
+                    "vimdoc",
                     "html",
                     "latex",
                 },
@@ -22,6 +23,7 @@ return {
                 auto_install = false,
                 highlight = {
                     enable = true,
+                    disable = { "vimdoc" },
                     additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true },
