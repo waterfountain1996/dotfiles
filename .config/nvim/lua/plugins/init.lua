@@ -222,8 +222,20 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "c", "python", "go", "lua", "vim", "vimdoc", "html" },
-			auto_install = true,
+			ensure_installed = {
+				"c",
+				"python",
+				"go",
+				"lua",
+				"vim",
+				"vimdoc",
+				"html",
+				"javascript",
+				"typescript",
+				"dockerfile",
+				"json",
+			},
+			auto_install = false,
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
