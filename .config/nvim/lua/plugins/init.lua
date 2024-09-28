@@ -9,7 +9,7 @@ return {
 		config = function()
 			vim.g.gruvbox_italic = true
 			vim.g.gruvbox_invert_selection = false
-			vim.g.gruvbox_contrast_dark = "soft"
+			vim.g.gruvbox_contrast_dark = "hard"
 			vim.cmd([[colorscheme gruvbox]])
 		end,
 	},
@@ -132,7 +132,7 @@ return {
 				pyright = {},
 				gopls = {},
 				templ = {},
-				tsserver = {},
+				ts_ls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
