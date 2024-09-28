@@ -109,6 +109,8 @@ vim.keymap.set("n", "<C-k>", ":bn<CR>", { noremap = true })
 vim.keymap.set("n", "<C-j>", ":bp<CR>", { noremap = true })
 vim.keymap.set("n", "<C-x>", ":bd<CR>", { noremap = true })
 
+vim.filetype.add({ extension = { templ = "templ" } })
+
 -- Load plugins
 require("lazy").setup("plugins")
 
