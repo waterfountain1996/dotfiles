@@ -16,3 +16,7 @@ export GOBIN="$XDG_DATA_HOME"/go/bin
 
 export PATH="$PATH":"$HOME"/.local/bin
 export PATH="$PATH":"$GOBIN"
+
+if [ -d "/opt/homebrew/bin" ]; then
+	export PATH="$PATH":"/opt/homebrew/bin"
+fi
