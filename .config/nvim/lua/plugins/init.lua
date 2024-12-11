@@ -121,6 +121,11 @@ return {
 							end,
 						})
 					end
+
+					vim.api.nvim_create_user_command('Goimports', function()
+						vim.cmd("!goimports -w %")
+					end, {})
+
 				end,
 			})
 
