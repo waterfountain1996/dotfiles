@@ -18,5 +18,17 @@ export PATH="$PATH":"$HOME"/.local/bin
 export PATH="$PATH":"$GOBIN"
 
 if [ -d "/opt/homebrew/bin" ]; then
-	export PATH="$PATH":"/opt/homebrew/bin"
+	export PATH="/opt/homebrew/bin":"$PATH"
 fi
+
+if [ -d "$HOME/.orbstack/bin" ]; then
+	export PATH="$HOME/.orbstack/bin":"$PATH"
+fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export LESSHISTFILE=/dev/null
+
+export NVIM_APPNAME=litenvim
