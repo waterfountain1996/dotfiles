@@ -128,3 +128,63 @@ require("lazy").setup({
     { import = "plugins" },
   }
 })
+
+-- Enable LSP servers
+vim.lsp.enable({ "clangd", "gopls", "lua_ls", "pyright", "ts_ls", "rust_analyzer" })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local mapkey = function(keys, func)
+      vim.keymap.set("n", keys, func, {
+        buffer = args.buf,
+      })
+    end
+
+    local builtin = require("telescope.builtin")
+
+    mapkey("gd", builtin.lsp_definitions)
+    mapkey("gr", builtin.lsp_references)
+    mapkey("gR", vim.lsp.buf.rename)
+    mapkey("K", vim.lsp.buf.hover)
+    mapkey("<leader>e", vim.diagnostic.open_float)
+    mapkey("[d", function()
+      vim.diagnostic.jump({
+        diagnostic = vim.diagnostic.get_prev(),
+      })
+    end)
+    mapkey("]d", function()
+      vim.diagnostic.jump({
+        diagnostic = vim.diagnostic.get_next(),
+      })
+    end)
+  end,
+})
+
+---Query the LSP server for any OrganizeImports code actions and apply edits for those.
+---@param bufnr integer
+local maybe_fix_imports = function(bufnr)
+  local params = vim.lsp.util.make_range_params(0, "utf-8")
+  params.context = { only = { "source.organizeImports" } }
+
+  local result = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params)
+  for client_id, requests in pairs(result or {}) do
+    for _, req in pairs(requests.result or {}) do
+      if req.edit then
+        local encoding = (vim.lsp.get_client_by_id(client_id) or {}).offset_encoding or "utf-8"
+        vim.lsp.util.apply_workspace_edit(req.edit, encoding)
+      end
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go,*.rs",
+  callback = function(args)
+    maybe_fix_imports(args.buf)
+    vim.lsp.buf.format({ bufnr = args.buf, async = false })
+  end,
+})
+
+vim.diagnostic.config({
+  virtual_text = true,
+})
