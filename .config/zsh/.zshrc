@@ -22,8 +22,8 @@ compdef _git rc
 
 # Fix navigation keys
 bindkey -e
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
+bindkey '^[[1;2D' backward-word
+bindkey '^[[1;2C' forward-word
 bindkey '^[[H'	  beginning-of-line
 bindkey '^[[4~'   end-of-line
 bindkey '^[[P'    delete-char
@@ -66,3 +66,5 @@ autoload -U promptinit && promptinit
 
 # Load syntax highlighting
 [ -d "$ZDOTDIR/fsh" ] && source "$ZDOTDIR/fsh/F-Sy-H.plugin.zsh"
+
+[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
