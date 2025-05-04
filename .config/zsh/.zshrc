@@ -67,4 +67,4 @@ autoload -U promptinit && promptinit
 # Load syntax highlighting
 [ -d "$ZDOTDIR/fsh" ] && source "$ZDOTDIR/fsh/F-Sy-H.plugin.zsh"
 
-[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+[ -d "$HOME/.cargo" ] && . "$HOME/.cargo/env"
