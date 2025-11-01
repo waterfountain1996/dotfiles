@@ -28,6 +28,11 @@ bindkey '^[[H'	  beginning-of-line
 bindkey '^[[4~'   end-of-line
 bindkey '^[[P'    delete-char
 
+# Edit current command with Ctrl-X + Ctrl-E
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # Command history
 HISTSIZE=10000
 SAVEHIST=10000

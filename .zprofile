@@ -25,6 +25,10 @@ if [ -d "$HOME/.orbstack/bin" ]; then
 	export PATH="$HOME/.orbstack/bin":"$PATH"
 fi
 
+if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
+	export PATH="/opt/homebrew/opt/libpq/bin":"$PATH"
+fi
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
