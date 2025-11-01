@@ -76,7 +76,7 @@ vim.opt.ruler = true
 vim.opt.wrap = false
 
 -- End of line marker.
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "101"
 
 -- Keep cursor away from top or bottom of the screen.
 vim.opt.scrolloff = 10
@@ -148,14 +148,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     mapkey("K", vim.lsp.buf.hover)
     mapkey("<leader>e", vim.diagnostic.open_float)
     mapkey("[d", function()
-      vim.diagnostic.jump({
-        diagnostic = vim.diagnostic.get_prev(),
-      })
+      local prev_diagnostic = vim.diagnostic.get_prev()
+      if prev_diagnostic then
+        vim.diagnostic.jump({
+          diagnostic = prev_diagnostic,
+        })
+      end
     end)
     mapkey("]d", function()
-      vim.diagnostic.jump({
-        diagnostic = vim.diagnostic.get_next(),
-      })
+      local next_diagnostic = vim.diagnostic.get_next()
+      if next_diagnostic then
+        vim.diagnostic.jump({
+          diagnostic = next_diagnostic,
+        })
+      end
     end)
   end,
 })
