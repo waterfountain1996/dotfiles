@@ -37,6 +37,7 @@ return {
         }))
       end)
       vim.keymap.set("n", "<leader>c", builtin.colorscheme)
+      vim.keymap.set("n", "<leader>m", builtin.marks)
     end,
   },
 }
