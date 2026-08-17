@@ -15,6 +15,9 @@ alias grep='grep --color=auto'
 # Editor shortcut
 alias e="$EDITOR"
 
+# Editor shortcut
+alias en="NVIM_APPNAME=nvim-0.12 ~/Downloads/nvim-macos-arm64/bin/nvim"
+
 # Git shortcut
 alias g='git'
 
@@ -62,4 +65,16 @@ fdecrypt() {
 
 mkcd() {
 	mkdir -p "$1" && cd "$1"
+}
+
+if [[ $(uname -s) == "Darwin" ]]; then
+	alias nproc='sysctl -n hw.ncpu'
+fi
+
+muxwd() {
+	if [[ -z $TMUX ]]; then
+		tmux new-session -A -s "${PWD##*/}"
+	else
+		tmux new-session -d -s "${PWD##*/}"
+	fi
 }

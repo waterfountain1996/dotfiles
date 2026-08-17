@@ -73,3 +73,5 @@ autoload -U promptinit && promptinit
 [ -d "$ZDOTDIR/fsh" ] && source "$ZDOTDIR/fsh/F-Sy-H.plugin.zsh"
 
 [ -d "$HOME/.cargo" ] && . "$HOME/.cargo/env"
+
+[ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
